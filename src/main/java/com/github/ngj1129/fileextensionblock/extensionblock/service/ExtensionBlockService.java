@@ -14,6 +14,7 @@ import com.github.ngj1129.fileextensionblock.extensionblock.domain.FixedExtensio
 import com.github.ngj1129.fileextensionblock.extensionblock.repository.CustomExtensionRepository;
 import com.github.ngj1129.fileextensionblock.extensionblock.repository.FixedExtensionRepository;
 import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.request.CustomExtensionRequest;
+import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.response.CustomExtensionListResponse;
 import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.response.FixedExtensionListResponse;
 import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.request.FixedExtensionUpdateRequest;
 
@@ -67,5 +68,10 @@ public class ExtensionBlockService {
 			.orElseThrow(() -> new CustomExtensionNotFoundException(ext));
 
 		customExtensionRepository.delete(customExtension);
+	}
+
+	public CustomExtensionListResponse getCustomExtensionList() {
+		List<CustomExtension> customExtensions = customExtensionRepository.findAll();
+		return CustomExtensionListResponse.from(customExtensions);
 	}
 }

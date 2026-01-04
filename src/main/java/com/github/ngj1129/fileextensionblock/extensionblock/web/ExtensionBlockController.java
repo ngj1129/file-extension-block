@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.ngj1129.fileextensionblock.extensionblock.service.ExtensionBlockService;
 import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.request.CustomExtensionRequest;
 import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.request.FixedExtensionUpdateRequest;
+import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.response.CustomExtensionListResponse;
 import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.response.FixedExtensionListResponse;
 
 import jakarta.validation.Valid;
@@ -43,7 +44,8 @@ public class ExtensionBlockController {
 	@PostMapping("/custom")
 	public ResponseEntity<Long> createCustomExtension(
 		@RequestBody @Valid CustomExtensionRequest request) {
-		return ResponseEntity.status(201).body(extensionBlockService.createCustomExtension(request));
+		return ResponseEntity.status(201)
+			.body(extensionBlockService.createCustomExtension(request));
 	}
 
 	// 커스텀 확장자 삭제
@@ -51,5 +53,11 @@ public class ExtensionBlockController {
 	public ResponseEntity<Void> deleteCustomExtension(@PathVariable String ext) {
 		extensionBlockService.deleteCustomExtension(ext);
 		return ResponseEntity.noContent().build();
+	}
+
+	// 커스텀 확장자 리스트 조회
+	@GetMapping("/custom")
+	public ResponseEntity<CustomExtensionListResponse> getCustomExtensionList() {
+		return ResponseEntity.ok(extensionBlockService.getCustomExtensionList());
 	}
 }

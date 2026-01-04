@@ -13,3 +13,6 @@
     - 커스텀 확장자 목록 조회
 - 업로드 테스트
     - 파일 업로드 시 확장자를 추출해 차단 여부 판단 (대소문자 무시)
+
+## 기술 스택
+Java 21, Spring Boot, Spring Data JPA, Thymeleaf, MySQL, Docker

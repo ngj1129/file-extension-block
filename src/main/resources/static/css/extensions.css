@@ -90,3 +90,19 @@ body { margin: 0; font-family: system-ui, -apple-system, sans-serif; background:
     cursor: pointer;
     line-height: 18px;
 }
+
+.upload-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.upload-result {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fafafa;
+    font-size: 14px;
+    min-height: 22px;
+}

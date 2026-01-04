@@ -88,6 +88,35 @@ async function deleteCustom(ext) {
     await refreshCustomList();
 }
 
+async function uploadFile(file) {
+    const form = new FormData();
+    form.append("file", file);
+
+    const headers = {};
+
+    const res = await fetch("/api/block-test/upload", {
+        method: "POST",
+        body: form,
+        headers,
+    });
+
+    if (res.ok) return;
+
+    let msg = `업로드 실패 (${res.status})`;
+    const ct = res.headers.get("content-type") || "";
+    try {
+        if (ct.includes("application/json")) {
+            const data = await res.json();
+            msg = data.message || msg;
+        } else {
+            const text = await res.text();
+            if (text) msg = text;
+        }
+    } catch (_) {}
+
+    throw new Error(msg);
+}
+
 /* ---------- 이벤트 바인딩 ---------- */
 document.addEventListener("DOMContentLoaded", () => {
     // 고정 확장자 체크박스
@@ -148,6 +177,31 @@ document.addEventListener("DOMContentLoaded", () => {
             await deleteCustom(ext);
         } catch (err) {
             alert(err.message);
+        }
+    });
+
+    // 업로드 테스트
+    const fileInput = document.getElementById("uploadFile");
+    const uploadBtn = document.getElementById("uploadBtn");
+    const uploadResult = document.getElementById("uploadResult");
+
+    uploadBtn.addEventListener("click", async () => {
+        const file = fileInput.files?.[0];
+        if (!file) {
+            alert("파일을 선택하세요.");
+            return;
+        }
+
+        uploadBtn.disabled = true;
+        uploadResult.textContent = "업로드 중...";
+
+        try {
+            await uploadFile(file);
+            uploadResult.textContent = `업로드 허용 (확장자 차단 아님): ${file.name}`;
+        } catch (err) {
+            uploadResult.textContent = `${err.message}`;
+        } finally {
+            uploadBtn.disabled = false;
         }
     });
 });

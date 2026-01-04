@@ -1,11 +1,14 @@
 package com.github.ngj1129.fileextensionblock.extensionblock.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.github.ngj1129.fileextensionblock.extensionblock.common.exception.FixedExtensionNotFoundException;
 import com.github.ngj1129.fileextensionblock.extensionblock.domain.FixedExtension;
 import com.github.ngj1129.fileextensionblock.extensionblock.repository.FixedExtensionRepository;
+import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.response.FixedExtensionListResponse;
 import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.request.FixedExtensionUpdateRequest;
 
 import lombok.RequiredArgsConstructor;
@@ -22,5 +25,10 @@ public class ExtensionBlockService {
 		FixedExtension fixedExtension = fixedExtensionRepository.findByExt(ext)
 			.orElseThrow(() -> new FixedExtensionNotFoundException(ext));
 		fixedExtension.updateBlocked(request.blocked());
+	}
+
+	public FixedExtensionListResponse getFixedExtensionList() {
+		List<FixedExtension> fixedExtensions = fixedExtensionRepository.findAll();
+		return FixedExtensionListResponse.from(fixedExtensions);
 	}
 }

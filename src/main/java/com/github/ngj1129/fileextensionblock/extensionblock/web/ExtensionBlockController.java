@@ -1,6 +1,7 @@
 package com.github.ngj1129.fileextensionblock.extensionblock.web;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,5 +44,12 @@ public class ExtensionBlockController {
 	public ResponseEntity<Long> createCustomExtension(
 		@RequestBody @Valid CustomExtensionRequest request) {
 		return ResponseEntity.status(201).body(extensionBlockService.createCustomExtension(request));
+	}
+
+	// 커스텀 확장자 삭제
+	@DeleteMapping("/custom/{ext}")
+	public ResponseEntity<Void> deleteCustomExtension(@PathVariable String ext) {
+		extensionBlockService.deleteCustomExtension(ext);
+		return ResponseEntity.noContent().build();
 	}
 }

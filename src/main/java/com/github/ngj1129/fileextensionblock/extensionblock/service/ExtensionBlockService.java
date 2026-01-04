@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.github.ngj1129.fileextensionblock.extensionblock.common.exception.CustomExtensionAlreadyExistsException;
 import com.github.ngj1129.fileextensionblock.extensionblock.common.exception.CustomExtensionLimitExceededException;
+import com.github.ngj1129.fileextensionblock.extensionblock.common.exception.CustomExtensionNotFoundException;
 import com.github.ngj1129.fileextensionblock.extensionblock.common.exception.FixedExtensionNotFoundException;
 import com.github.ngj1129.fileextensionblock.extensionblock.domain.CustomExtension;
 import com.github.ngj1129.fileextensionblock.extensionblock.domain.FixedExtension;
@@ -40,8 +41,6 @@ public class ExtensionBlockService {
 		return FixedExtensionListResponse.from(fixedExtensions);
 	}
 
-
-
 	@Transactional
 	public Long createCustomExtension(CustomExtensionRequest request) {
 		String ext = request.ext();
@@ -62,4 +61,11 @@ public class ExtensionBlockService {
 		return saved.getId();
 	}
 
+	@Transactional
+	public void deleteCustomExtension(String ext) {
+		CustomExtension customExtension = customExtensionRepository.findByExt(ext)
+			.orElseThrow(() -> new CustomExtensionNotFoundException(ext));
+
+		customExtensionRepository.delete(customExtension);
+	}
 }

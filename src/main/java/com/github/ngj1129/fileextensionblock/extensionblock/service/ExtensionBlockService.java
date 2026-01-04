@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.github.ngj1129.fileextensionblock.extensionblock.common.exception.FixedExtensionNotFoundException;
 import com.github.ngj1129.fileextensionblock.extensionblock.domain.FixedExtension;
 import com.github.ngj1129.fileextensionblock.extensionblock.repository.FixedExtensionRepository;
-import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.FixedExtensionUpdateRequest;
+import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.request.FixedExtensionUpdateRequest;
 
 import lombok.RequiredArgsConstructor;
 

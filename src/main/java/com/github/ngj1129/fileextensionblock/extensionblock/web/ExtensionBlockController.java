@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.ngj1129.fileextensionblock.extensionblock.service.ExtensionBlockService;
-import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.FixedExtensionUpdateRequest;
+import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.request.FixedExtensionUpdateRequest;
 
 import lombok.RequiredArgsConstructor;
 

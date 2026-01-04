@@ -1,4 +1,4 @@
-package com.github.ngj1129.fileextensionblock.extensionblock.web.dto.request;
+package com.github.ngj1129.fileextensionblock.extensionblock.extension.web.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

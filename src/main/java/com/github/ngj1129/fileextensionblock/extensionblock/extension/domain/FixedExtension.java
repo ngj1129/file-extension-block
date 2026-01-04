@@ -1,4 +1,4 @@
-package com.github.ngj1129.fileextensionblock.extensionblock.domain;
+package com.github.ngj1129.fileextensionblock.extensionblock.extension.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

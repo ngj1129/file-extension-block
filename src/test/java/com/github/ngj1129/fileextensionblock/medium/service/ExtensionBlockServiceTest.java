@@ -9,19 +9,18 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.github.ngj1129.fileextensionblock.extensionblock.common.exception.CustomExtensionAlreadyExistsException;
 import com.github.ngj1129.fileextensionblock.extensionblock.common.exception.CustomExtensionLimitExceededException;
 import com.github.ngj1129.fileextensionblock.extensionblock.common.exception.FixedExtensionNotFoundException;
-import com.github.ngj1129.fileextensionblock.extensionblock.domain.CustomExtension;
-import com.github.ngj1129.fileextensionblock.extensionblock.repository.CustomExtensionRepository;
-import com.github.ngj1129.fileextensionblock.extensionblock.repository.FixedExtensionRepository;
-import com.github.ngj1129.fileextensionblock.extensionblock.service.ExtensionBlockService;
-import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.request.CustomExtensionRequest;
-import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.request.FixedExtensionUpdateRequest;
+import com.github.ngj1129.fileextensionblock.extensionblock.extension.domain.CustomExtension;
+import com.github.ngj1129.fileextensionblock.extensionblock.extension.repository.CustomExtensionRepository;
+import com.github.ngj1129.fileextensionblock.extensionblock.extension.repository.FixedExtensionRepository;
+import com.github.ngj1129.fileextensionblock.extensionblock.extension.service.ExtensionBlockService;
+import com.github.ngj1129.fileextensionblock.extensionblock.extension.web.dto.request.CustomExtensionRequest;
+import com.github.ngj1129.fileextensionblock.extensionblock.extension.web.dto.request.FixedExtensionUpdateRequest;
 
 @ExtendWith(MockitoExtension.class)
 class ExtensionBlockServiceTest {

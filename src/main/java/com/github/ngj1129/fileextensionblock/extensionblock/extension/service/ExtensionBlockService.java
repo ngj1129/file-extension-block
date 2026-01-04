@@ -1,4 +1,4 @@
-package com.github.ngj1129.fileextensionblock.extensionblock.service;
+package com.github.ngj1129.fileextensionblock.extensionblock.extension.service;
 
 import java.util.List;
 
@@ -10,14 +10,14 @@ import com.github.ngj1129.fileextensionblock.extensionblock.common.exception.Cus
 import com.github.ngj1129.fileextensionblock.extensionblock.common.exception.CustomExtensionLimitExceededException;
 import com.github.ngj1129.fileextensionblock.extensionblock.common.exception.CustomExtensionNotFoundException;
 import com.github.ngj1129.fileextensionblock.extensionblock.common.exception.FixedExtensionNotFoundException;
-import com.github.ngj1129.fileextensionblock.extensionblock.domain.CustomExtension;
-import com.github.ngj1129.fileextensionblock.extensionblock.domain.FixedExtension;
-import com.github.ngj1129.fileextensionblock.extensionblock.repository.CustomExtensionRepository;
-import com.github.ngj1129.fileextensionblock.extensionblock.repository.FixedExtensionRepository;
-import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.request.CustomExtensionRequest;
-import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.response.CustomExtensionListResponse;
-import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.response.FixedExtensionListResponse;
-import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.request.FixedExtensionUpdateRequest;
+import com.github.ngj1129.fileextensionblock.extensionblock.extension.domain.CustomExtension;
+import com.github.ngj1129.fileextensionblock.extensionblock.extension.domain.FixedExtension;
+import com.github.ngj1129.fileextensionblock.extensionblock.extension.repository.CustomExtensionRepository;
+import com.github.ngj1129.fileextensionblock.extensionblock.extension.repository.FixedExtensionRepository;
+import com.github.ngj1129.fileextensionblock.extensionblock.extension.web.dto.request.CustomExtensionRequest;
+import com.github.ngj1129.fileextensionblock.extensionblock.extension.web.dto.response.CustomExtensionListResponse;
+import com.github.ngj1129.fileextensionblock.extensionblock.extension.web.dto.response.FixedExtensionListResponse;
+import com.github.ngj1129.fileextensionblock.extensionblock.extension.web.dto.request.FixedExtensionUpdateRequest;
 
 @Service
 @Transactional(readOnly = true)

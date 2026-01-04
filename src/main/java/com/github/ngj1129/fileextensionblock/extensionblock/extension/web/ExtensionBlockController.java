@@ -1,4 +1,4 @@
-package com.github.ngj1129.fileextensionblock.extensionblock.web;
+package com.github.ngj1129.fileextensionblock.extensionblock.extension.web;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.github.ngj1129.fileextensionblock.extensionblock.service.ExtensionBlockService;
-import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.request.CustomExtensionRequest;
-import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.request.FixedExtensionUpdateRequest;
-import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.response.CustomExtensionListResponse;
-import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.response.FixedExtensionListResponse;
+import com.github.ngj1129.fileextensionblock.extensionblock.extension.service.ExtensionBlockService;
+import com.github.ngj1129.fileextensionblock.extensionblock.extension.web.dto.request.CustomExtensionRequest;
+import com.github.ngj1129.fileextensionblock.extensionblock.extension.web.dto.request.FixedExtensionUpdateRequest;
+import com.github.ngj1129.fileextensionblock.extensionblock.extension.web.dto.response.CustomExtensionListResponse;
+import com.github.ngj1129.fileextensionblock.extensionblock.extension.web.dto.response.FixedExtensionListResponse;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

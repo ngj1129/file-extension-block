@@ -1,6 +1,6 @@
-package com.github.ngj1129.fileextensionblock.extensionblock.web.dto.response;
+package com.github.ngj1129.fileextensionblock.extensionblock.extension.web.dto.response;
 
-import com.github.ngj1129.fileextensionblock.extensionblock.domain.FixedExtension;
+import com.github.ngj1129.fileextensionblock.extensionblock.extension.domain.FixedExtension;
 
 public record FixedExtensionResponse(
 	String ext,

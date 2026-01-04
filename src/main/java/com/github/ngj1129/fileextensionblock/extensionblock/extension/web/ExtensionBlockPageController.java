@@ -1,11 +1,11 @@
-package com.github.ngj1129.fileextensionblock.extensionblock.web;
+package com.github.ngj1129.fileextensionblock.extensionblock.extension.web;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.github.ngj1129.fileextensionblock.extensionblock.service.ExtensionBlockService;
+import com.github.ngj1129.fileextensionblock.extensionblock.extension.service.ExtensionBlockService;
 
 import lombok.RequiredArgsConstructor;
 

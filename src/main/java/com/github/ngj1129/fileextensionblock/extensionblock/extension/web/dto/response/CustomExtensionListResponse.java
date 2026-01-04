@@ -1,8 +1,8 @@
-package com.github.ngj1129.fileextensionblock.extensionblock.web.dto.response;
+package com.github.ngj1129.fileextensionblock.extensionblock.extension.web.dto.response;
 
 import java.util.List;
 
-import com.github.ngj1129.fileextensionblock.extensionblock.domain.CustomExtension;
+import com.github.ngj1129.fileextensionblock.extensionblock.extension.domain.CustomExtension;
 
 public record CustomExtensionListResponse(
 	List<String> customExtensions

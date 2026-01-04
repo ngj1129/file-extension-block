@@ -1,3 +1,7 @@
 spring:
   application:
     name: file-extension-block
+
+extension-block:
+  custom:
+    limit: 200

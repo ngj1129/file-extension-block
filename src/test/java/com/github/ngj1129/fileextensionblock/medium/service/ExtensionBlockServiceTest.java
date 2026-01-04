@@ -5,6 +5,7 @@ import static org.mockito.BDDMockito.*;
 
 import java.util.Optional;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -25,7 +26,6 @@ import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.request.Fixe
 @ExtendWith(MockitoExtension.class)
 class ExtensionBlockServiceTest {
 
-	@InjectMocks
 	ExtensionBlockService extensionBlockService;
 
 	@Mock
@@ -33,6 +33,15 @@ class ExtensionBlockServiceTest {
 
 	@Mock
 	CustomExtensionRepository customExtensionRepository;
+
+	@BeforeEach
+	void setUp() {
+		extensionBlockService = new ExtensionBlockService(
+			fixedExtensionRepository,
+			customExtensionRepository,
+			200
+		);
+	}
 
 	@Test
 	@DisplayName("경로의 ext에 해당하는 고정 확장자가 존재하지 않으면 예외를 반환한다")

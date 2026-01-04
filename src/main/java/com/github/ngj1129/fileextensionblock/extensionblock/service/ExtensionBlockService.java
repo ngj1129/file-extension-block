@@ -2,6 +2,7 @@ package com.github.ngj1129.fileextensionblock.extensionblock.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,17 +19,23 @@ import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.response.Cus
 import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.response.FixedExtensionListResponse;
 import com.github.ngj1129.fileextensionblock.extensionblock.web.dto.request.FixedExtensionUpdateRequest;
 
-import lombok.RequiredArgsConstructor;
-
 @Service
 @Transactional(readOnly = true)
-@RequiredArgsConstructor
 public class ExtensionBlockService {
-
-	private static final int CUSTOM_LIMIT = 200;
 
 	private final FixedExtensionRepository fixedExtensionRepository;
 	private final CustomExtensionRepository customExtensionRepository;
+	private final int customLimit;
+
+	public ExtensionBlockService(
+		FixedExtensionRepository fixedExtensionRepository,
+		CustomExtensionRepository customExtensionRepository,
+		@Value("${extension-block.custom.limit}") int customLimit
+	) {
+		this.fixedExtensionRepository = fixedExtensionRepository;
+		this.customExtensionRepository = customExtensionRepository;
+		this.customLimit = customLimit;
+	}
 
 	@Transactional
 	public void updateFixedExtension(String ext, FixedExtensionUpdateRequest request) {
@@ -48,8 +55,8 @@ public class ExtensionBlockService {
 
 		// 1) 개수 제한
 		long count = customExtensionRepository.count();
-		if (count >= CUSTOM_LIMIT) {
-			throw new CustomExtensionLimitExceededException(CUSTOM_LIMIT);
+		if (count >= customLimit) {
+			throw new CustomExtensionLimitExceededException(customLimit);
 		}
 
 		// 2) 중복 검사

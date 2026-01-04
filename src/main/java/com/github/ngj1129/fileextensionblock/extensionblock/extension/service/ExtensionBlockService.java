@@ -51,7 +51,7 @@ public class ExtensionBlockService {
 
 	@Transactional
 	public Long createCustomExtension(CustomExtensionRequest request) {
-		String ext = request.ext();
+		String ext = request.ext().trim().toLowerCase();
 
 		// 1) 개수 제한
 		long count = customExtensionRepository.count();

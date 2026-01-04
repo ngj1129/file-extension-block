@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -102,5 +103,32 @@ class ExtensionBlockServiceTest {
 
 		// then
 		assertThat(id).isEqualTo(1L);
+	}
+
+	@Test
+	@DisplayName("커스텀 확장자에 공백이 있거나 대문자로 들어오면 trim && 소문자로 변환한다")
+	void createCustomExtension_lowercaseIfUppercase() {
+		// given
+		given(customExtensionRepository.count()).willReturn(0L);
+		given(customExtensionRepository.existsByExt("exe")).willReturn(false);
+
+		CustomExtension saved = CustomExtension.builder()
+			.id(1L)
+			.ext("exe")
+			.build();
+
+		ArgumentCaptor<CustomExtension> captor = ArgumentCaptor.forClass(CustomExtension.class);
+		given(customExtensionRepository.save(captor.capture()))
+			.willReturn(saved);
+
+		// when
+		extensionBlockService.createCustomExtension(new CustomExtensionRequest("  EXE  "));
+
+		// then
+		CustomExtension toSave = captor.getValue();
+		assertThat(toSave.getExt()).isEqualTo("exe");
+
+		then(customExtensionRepository).should(times(1)).existsByExt("exe");
+		then(customExtensionRepository).should(times(1)).save(any(CustomExtension.class));
 	}
 }

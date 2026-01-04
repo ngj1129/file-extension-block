@@ -14,12 +14,12 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.mock.web.MockMultipartFile;
 
-import com.github.ngj1129.fileextensionblock.extensionblock.blocktest.service.BlockTestService;
-import com.github.ngj1129.fileextensionblock.extensionblock.common.exception.BlockedExtensionException;
-import com.github.ngj1129.fileextensionblock.extensionblock.common.exception.InvalidFilenameException;
-import com.github.ngj1129.fileextensionblock.extensionblock.extension.domain.FixedExtension;
-import com.github.ngj1129.fileextensionblock.extensionblock.extension.repository.CustomExtensionRepository;
-import com.github.ngj1129.fileextensionblock.extensionblock.extension.repository.FixedExtensionRepository;
+import com.github.ngj1129.fileextensionblock.blocktest.service.BlockTestService;
+import com.github.ngj1129.fileextensionblock.common.exception.blocktest.BlockedExtensionException;
+import com.github.ngj1129.fileextensionblock.common.exception.blocktest.InvalidFilenameException;
+import com.github.ngj1129.fileextensionblock.extension.domain.FixedExtension;
+import com.github.ngj1129.fileextensionblock.extension.repository.CustomExtensionRepository;
+import com.github.ngj1129.fileextensionblock.extension.repository.FixedExtensionRepository;
 
 @ExtendWith(MockitoExtension.class)
 class BlockTestServiceTest {

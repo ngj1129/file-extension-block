@@ -13,15 +13,15 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.github.ngj1129.fileextensionblock.extensionblock.common.exception.CustomExtensionAlreadyExistsException;
-import com.github.ngj1129.fileextensionblock.extensionblock.common.exception.CustomExtensionLimitExceededException;
-import com.github.ngj1129.fileextensionblock.extensionblock.common.exception.FixedExtensionNotFoundException;
-import com.github.ngj1129.fileextensionblock.extensionblock.extension.domain.CustomExtension;
-import com.github.ngj1129.fileextensionblock.extensionblock.extension.repository.CustomExtensionRepository;
-import com.github.ngj1129.fileextensionblock.extensionblock.extension.repository.FixedExtensionRepository;
-import com.github.ngj1129.fileextensionblock.extensionblock.extension.service.ExtensionBlockService;
-import com.github.ngj1129.fileextensionblock.extensionblock.extension.web.dto.request.CustomExtensionRequest;
-import com.github.ngj1129.fileextensionblock.extensionblock.extension.web.dto.request.FixedExtensionUpdateRequest;
+import com.github.ngj1129.fileextensionblock.common.exception.extension.CustomExtensionAlreadyExistsException;
+import com.github.ngj1129.fileextensionblock.common.exception.extension.CustomExtensionLimitExceededException;
+import com.github.ngj1129.fileextensionblock.common.exception.extension.FixedExtensionNotFoundException;
+import com.github.ngj1129.fileextensionblock.extension.domain.CustomExtension;
+import com.github.ngj1129.fileextensionblock.extension.repository.CustomExtensionRepository;
+import com.github.ngj1129.fileextensionblock.extension.repository.FixedExtensionRepository;
+import com.github.ngj1129.fileextensionblock.extension.service.ExtensionBlockService;
+import com.github.ngj1129.fileextensionblock.extension.web.dto.request.CustomExtensionRequest;
+import com.github.ngj1129.fileextensionblock.extension.web.dto.request.FixedExtensionUpdateRequest;
 
 @ExtendWith(MockitoExtension.class)
 class ExtensionBlockServiceTest {

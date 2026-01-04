@@ -11,8 +11,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.github.ngj1129.fileextensionblock.extensionblock.extension.service.ExtensionBlockService;
-import com.github.ngj1129.fileextensionblock.extensionblock.extension.web.ExtensionBlockController;
+import com.github.ngj1129.fileextensionblock.extension.service.ExtensionBlockService;
+import com.github.ngj1129.fileextensionblock.extension.web.ExtensionBlockController;
 
 @WebMvcTest(controllers = ExtensionBlockController.class)
 class CustomExtensionRequestTest {
